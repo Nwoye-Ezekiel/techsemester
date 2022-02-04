@@ -1,9 +1,11 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Link } from "react-router-dom";
 import "./Register.css";
 import Button from "../../../Components/Button/Button";
 
 export default function Register() {
+  window.scrollTo(0,0);
   return (
     <div className="register-container">
       <h1>Register</h1>
@@ -97,11 +99,16 @@ export default function Register() {
               </div>
 
               <Button type="submit" disabled={isSubmitting}>
-                Submit
+                Create Account
               </Button>
-              {/* <button type="submit" disabled={isSubmitting}>
-                Submit
-              </button> */}
+
+              <p className="account">
+                Already have an account?
+                <Link to="/login">
+                  <span className="action-link">Log in</span>
+                </Link>
+              </p>
+
             </Form>
           )}
         </Formik>

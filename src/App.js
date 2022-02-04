@@ -7,10 +7,12 @@ import Intro from "./Pages/Intro/Intro";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Switch } from "react-router";
 import Layout from "./Components/Layout/Layout";
+import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 
 const App = () => {
   return (
     <Router>
+    <ScrollToTop />
       <Switch>
         <Route exact component={Intro} path="/" />
         <Layout>

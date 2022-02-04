@@ -52,6 +52,10 @@ hr {
   background: #f6faff69;
 }
 
+.form-input input::placeholder{
+  color: #0c355d4f;
+}
+
 .form-input input:focus {
   border: #052ffe5d solid 1px;
 }
@@ -86,8 +90,26 @@ label {
   opacity: 0.75;
 }
 
-.terms {
+.terms,
+.login {
   color: #042ffe;
   font-weight: bold;
   cursor: pointer;
+}
+
+.account {
+  color: #486686;
+  font-family: "livvic-m";
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.action-link {
+  font-weight: bold;
+  margin-left: 5px;
+  color: #4968FE;
+}
+
+.account a {
+  text-decoration: none;
 }

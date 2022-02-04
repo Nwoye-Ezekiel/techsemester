@@ -16,6 +16,7 @@
   background-size: 200% auto;
   font-size: 15px;
   font-family: "livvic-m";
+  cursor: pointer;
 }
 
 .button-container:hover {
