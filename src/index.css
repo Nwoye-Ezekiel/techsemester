@@ -1,13 +1,44 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: livvic-b;
+  src: url("./Fonts/Livvic-Bold.ttf");
+}
+@font-face {
+  font-family: livvic-s;
+  src: url("./Fonts/Livvic-SemiBold.ttf");
+}
+@font-face {
+  font-family: livvic-m;
+  src: url("./Fonts/Livvic-Medium.ttf");
+}
+@font-face {
+  font-family: livvic-r;
+  src: url("./Fonts/Livvic-Regular.ttf");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* all tags */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 400;
 }
+
+/* html and body tags */
+html,
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  font-family: "livvic-r";
+}
+
