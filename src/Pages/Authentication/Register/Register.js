@@ -3,9 +3,12 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import Button from "../../../Components/Button/Button";
+import { useDispatch } from "react-redux";
+import { registerUserAction } from "../../../Redux/Actions/Actions";
 
 export default function Register() {
   window.scrollTo(0,0);
+  const dispatch = useDispatch();
   return (
     <div className="register-container">
       <h1>Register</h1>
@@ -37,6 +40,7 @@ export default function Register() {
           onSubmit={(values, { setSubmitting }) => {
             setSubmitting(false);
             console.log(values);
+            dispatch(registerUserAction(values));
           }}
         >
           {({ isSubmitting }) => (
