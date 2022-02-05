@@ -11,6 +11,7 @@ export default function Home() {
     if (!authedUser) {
       history.push("/login");
     }
+    //eslint-disable-next-line
   }, [authedUser]);
 
   return (

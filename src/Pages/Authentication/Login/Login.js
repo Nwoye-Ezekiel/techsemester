@@ -20,6 +20,7 @@ export default function Login() {
     if (authedUser) {
       history.push("/home");
     }
+    //eslint-disable-next-line
   }, [authedUser]);
 
   const handleShowPassword = () => {
