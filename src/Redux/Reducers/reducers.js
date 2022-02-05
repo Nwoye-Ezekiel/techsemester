@@ -14,6 +14,7 @@ export const reducers = (state = INITIAL_STATE, action) => {
         ...state,
         loading: true,
       };
+
     case Types.REGISTER_USER_SUCCESS:
     case Types.REGISTER_USER_FAILURE:
     case Types.LOGIN_USER_FAILURE:
@@ -21,6 +22,7 @@ export const reducers = (state = INITIAL_STATE, action) => {
         ...state,
         loading: false,
       };
+
     case Types.LOGIN_USER_SUCCESS:
       return {
         ...state,
@@ -28,6 +30,7 @@ export const reducers = (state = INITIAL_STATE, action) => {
         authedUser: true,
         userDetails: action.payload,
       };
+
     default:
       return state;
   }

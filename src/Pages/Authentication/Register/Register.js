@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import "./Register.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
-import "./Register.css";
 import Button from "../../../Components/Button/Button";
 import { registerUserAction } from "../../../Redux/Actions/Actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,6 +17,7 @@ export default function Register() {
   const handleShowPassword1 = () => {
     setShowPassword1(!showPassword1);
   };
+
   const handleShowPassword2 = () => {
     setShowPassword2(!showPassword2);
   };
@@ -42,10 +43,7 @@ export default function Register() {
           }}
           validate={(values) => {
             const errors = {};
-            console.log(values.password1);
-            if (
-              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-            ) {
+            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
               errors.email = "Invalid email address";
             }
             if (values.password1 !== values.password2) {
@@ -82,7 +80,11 @@ export default function Register() {
                 <div className="form-input">
                   <label>Email</label>
                   <Field type="email" name="email" required />
-                  <ErrorMessage name="email" component="div" />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="error"
+                  />
                 </div>
               </div>
 
@@ -101,6 +103,7 @@ export default function Register() {
                   </div>
                   <ErrorMessage name="password1" component="div" />
                 </div>
+
                 <div className="form-input">
                   <label>Confirm Password</label>
                   <div className="password-field">

@@ -1,8 +1,7 @@
 import * as API from "../../Services/apiServices";
 import { Types } from "../Types/Types";
 
-// action creators
-// for register
+// action creators for register
 export const registerUserStart = () => ({
   type: Types.REGISTER_USER_START,
 });
@@ -59,8 +58,6 @@ export const openQR = (dispatch) => {
   });
 };
 
-// Synchronous actions
-
 // Asynchronous actions
 export const registerUserAction = (data) => {
   return async (dispatch) => {
@@ -94,10 +91,8 @@ export const getUserDetailsAction = (data) => {
     try {
       dispatch(getUserDetailsStart());
       const response = await API.getUserDetails(data);
-      console.log("Response", response);
       dispatch(getUserDetailsSuccess(response.data));
     } catch (error) {
-      console.log("Error", error);
       return dispatch(getUserDetailsFailure(error.response?.data?.message));
     }
   };

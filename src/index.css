@@ -29,16 +29,13 @@ body {
   position: relative;
   min-height: 100vh;
 }
-
 html {
   display: flex;
   justify-content: center;
 }
-
 body {
   width: 100%;
   max-width: 1400px;
   height: 100%;
   font-family: "livvic-r";
 }
-

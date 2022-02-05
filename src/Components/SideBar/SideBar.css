@@ -14,14 +14,12 @@
   padding: 40px;
   overflow: hidden;
 }
-
 .sidebar-header {
   font-weight: bold;
   font-size: 30px;
   color: white;
   margin-right: 20px;
 }
-
 .illustration-congrats {
   position: absolute;
   bottom: 10px;
@@ -31,25 +29,21 @@
   z-index: -1;
   transform: scale(1.5);
 }
-
 .illustration-girl {
   margin-left: auto;
   margin-top: auto;
 }
-
 .logo-container {
   display: flex;
   align-items: center;
   width: 100%;
   margin-bottom: 60px;
 }
-
 .logo {
   color: white;
   margin-right: 15px;
   font-size: 28px;
 }
-
 .logo-name {
   font-weight: bold;
   color: white;

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
+import "../Register/Register.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import "../Register/Register.css";
 import Button from "../../../Components/Button/Button";
 import { loginUserAction } from "../../../Redux/Actions/Actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -43,13 +43,12 @@ export default function Login() {
           }}
           validate={(values) => {
             const errors = {};
-
-            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email))
+            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)){
               errors.email = "Invalid email address";
+            }
             return errors;
           }}
           onSubmit={(values) => {
-            console.log(values);
             dispatch(loginUserAction(values));
           }}
         >

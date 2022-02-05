@@ -8,7 +8,6 @@ export const loginUser = (data) => {
     data,
   });
 };
-
 export const registerUser = (data) => {
   return axios({
     method: "POST",
@@ -16,7 +15,6 @@ export const registerUser = (data) => {
     data,
   });
 };
-
 export const getUserDetails = (data) => {
   return axios({
     method: "GET",
@@ -24,7 +22,6 @@ export const getUserDetails = (data) => {
     data,
   });
 };
-
 export const postQuestion = (data) => {
   return axios({
     method: "POST",
