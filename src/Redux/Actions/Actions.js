@@ -48,61 +48,57 @@ export const getUserDetailsFailure = (error) => ({
 });
 
 export const setPinFailure = (dispatch) => {
-    dispatch({
-      type: "SET_PIN_FAILURE",
-    });
-  };
-  
-  export const openQR = (dispatch) => {
-    dispatch({
-      type: "OPEN_QR",
-    });
-  };
+  dispatch({
+    type: "SET_PIN_FAILURE",
+  });
+};
 
+export const openQR = (dispatch) => {
+  dispatch({
+    type: "OPEN_QR",
+  });
+};
 
 // Synchronous actions
 
-
 // Asynchronous actions
 export const registerUserAction = (data) => {
-    return async (dispatch) => {
-      try {
-        dispatch(registerUserStart());
-        const response = await API.registerUser(data);
-        console.log("Response", response)
-        dispatch(registerUserSuccess(response.data));
-      } catch (error) {
-          console.log("Error", error)
-        return dispatch(registerUserFailure(error.response?.data?.message));
-      }
-    };
+  return async (dispatch) => {
+    try {
+      dispatch(registerUserStart());
+      await API.registerUser(data);
+      dispatch(registerUserSuccess());
+      alert("An email has been sent to you, do verify to login.");
+    } catch (error) {
+      alert(error);
+      return dispatch(registerUserFailure(error.response?.data?.message));
+    }
   };
+};
 
 export const loginUserAction = (data) => {
-    return async (dispatch) => {
-      try {
-        dispatch(loginUserStart());
-        const response = await API.loginUser(data);
-        console.log("Response", response)
-        dispatch(loginUserSuccess(response.data));
-      } catch (error) {
-          console.log("Error", error)
-        return dispatch(loginUserFailure(error.response?.data?.message));
-      }
-    };
+  return async (dispatch) => {
+    try {
+      dispatch(loginUserStart());
+      const response = await API.loginUser(data);
+      dispatch(loginUserSuccess(response.data));
+    } catch (error) {
+      alert(error);
+      return dispatch(loginUserFailure(error.response?.data?.message));
+    }
   };
+};
 
 export const getUserDetailsAction = (data) => {
-    return async (dispatch) => {
-      try {
-        dispatch(getUserDetailsStart());
-        const response = await API.getUserDetails(data);
-        console.log("Response", response)
-        dispatch(getUserDetailsSuccess(response.data));
-      } catch (error) {
-          console.log("Error", error)
-        return dispatch(getUserDetailsFailure(error.response?.data?.message));
-      }
-    };
+  return async (dispatch) => {
+    try {
+      dispatch(getUserDetailsStart());
+      const response = await API.getUserDetails(data);
+      console.log("Response", response);
+      dispatch(getUserDetailsSuccess(response.data));
+    } catch (error) {
+      console.log("Error", error);
+      return dispatch(getUserDetailsFailure(error.response?.data?.message));
+    }
   };
-  
+};

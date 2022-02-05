@@ -52,7 +52,7 @@ hr {
   background: #f6faff69;
 }
 
-.form-input input::placeholder{
+.form-input input::placeholder {
   color: #0c355d4f;
 }
 
@@ -107,10 +107,26 @@ label {
 .action-link {
   font-weight: bold;
   margin-left: 5px;
-  color: #4968FE;
-  letter-spacing: .6px;
+  color: #4968fe;
+  letter-spacing: 0.6px;
 }
 
 .account a {
   text-decoration: none;
+}
+
+.error {
+  color: rgb(255, 0, 0);
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field span {
+  position: absolute;
+  cursor: pointer;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }

@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
   return (
     <div className="layout-container">
       {addSideBar && <SideBar />}
-      <div className={`main ${addSideBar ? "incomplete-width" : "full-width"}`}>
+      <div className={`main ${addSideBar ? "incomplete-width" : "complete-width"}`}>
         {children}
       </div>
     </div>

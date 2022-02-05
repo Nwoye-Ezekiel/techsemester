@@ -3,24 +3,20 @@
   min-height: 100vh;
   width: 100%;
 }
-
 .main {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: auto;
   padding: 60px;
-  background: #FAFCFF;
+  background: #fafcff;
 }
-
 .incomplete-width {
   width: 70%;
 }
-
 .complete-width {
   width: 100%;
 }
-
-hr{
-    border-top: 1px rgb(248, 248, 248) solid;
+hr {
+  border-top: 1px rgb(248, 248, 248) solid;
 }

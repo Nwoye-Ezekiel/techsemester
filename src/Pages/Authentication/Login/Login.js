@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../Register/Register.css";
 import Button from "../../../Components/Button/Button";
+import { loginUserAction } from "../../../Redux/Actions/Actions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
-  window.scrollBy(0, 0);
+  const [showPassword, setShowPassword] = useState(false);
+  const loading = useSelector((state) => state.user.loading);
+  const authedUser = useSelector((state) => state.user.authedUser);
+  const dispatch = useDispatch();
+  let history = useHistory();
+
+  useEffect(() => {
+    if (authedUser) {
+      history.push("/home");
+    }
+  }, [authedUser]);
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="register-container">
       <h1>Login</h1>
@@ -18,21 +38,19 @@ export default function Login() {
       <div className="form-container">
         <Formik
           initialValues={{
-            phoneNumber: "",
             username: "",
+            password: "",
           }}
           validate={(values) => {
             const errors = {};
-            if (!values.email) errors.email = "Required";
-            else if (
-              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-            )
+
+            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email))
               errors.email = "Invalid email address";
             return errors;
           }}
-          onSubmit={(values, { setSubmitting }) => {
-            setSubmitting(false);
+          onSubmit={(values) => {
             console.log(values);
+            dispatch(loginUserAction(values));
           }}
         >
           {({ isSubmitting }) => (
@@ -40,12 +58,27 @@ export default function Login() {
               <div className="form-input-group">
                 <div className="form-input">
                   <label>Username</label>
-                  <Field type="username" name="username" placeholder="Email or Phone Number" required/>
-                  <ErrorMessage name="username" component="div" />
+                  <Field
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                  />
+                  <ErrorMessage name="email" component="div" />
                 </div>
                 <div className="form-input">
                   <label>Password</label>
-                  <Field type="password" name="password" placeholder="password" required/>
+                  <div className="password-field">
+                    <Field
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      placeholder="Password"
+                      required
+                    />
+                    <span onClick={handleShowPassword}>
+                      {showPassword ? "Hide" : "Show"}
+                    </span>
+                  </div>
                   <ErrorMessage name="password" component="div" />
                 </div>
               </div>
@@ -58,7 +91,11 @@ export default function Login() {
               </div>
 
               <Button type="submit" disabled={isSubmitting}>
-                Login
+                {loading ? (
+                  <FontAwesomeIcon icon={faSpinner} spin={true} />
+                ) : (
+                  "Login"
+                )}
               </Button>
 
               <p className="account">
