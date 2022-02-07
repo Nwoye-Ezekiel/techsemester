@@ -1,0 +1,59 @@
+.navigation-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 80px;
+  align-items: center;
+  width: 100%;
+  background-color: #fff;
+}
+.links {
+  display: flex;
+}
+
+input[type="search"] {
+  width: 350px;
+  height: 40px;
+  background-color: #ececec;
+  outline: 0;
+  border: 0;
+  padding: 5px 10px 5px 35px;
+  border-radius: 5px;
+}
+input[type="search"]::placeholder {
+  font-family: "livvic-r";
+  font-size: 16px;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.icon {
+  font-size: 16px;
+}
+
+.icon-search {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 20px;
+  background-image: url("./Assets/Images/man.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.question-btn {
+  padding: 10px 25px;
+  border-radius: 20px;
+}

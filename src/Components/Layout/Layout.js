@@ -2,6 +2,7 @@ import React from "react";
 import "./Layout.css";
 import SideBar from "../SideBar/SideBar";
 import { useLocation } from "react-router-dom";
+import Navigation from "../Navigation/Navigation";
 
 const Layout = ({ children }) => {
   const { pathname } = useLocation();
@@ -13,7 +14,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="layout-container">
-      {addSideBar && <SideBar />}
+      {addSideBar ? <SideBar /> : <Navigation />}
       <div className={`main ${addSideBar ? "incomplete-width" : "complete-width"}`}>
         {children}
       </div>

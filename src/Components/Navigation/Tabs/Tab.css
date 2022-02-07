@@ -1,0 +1,31 @@
+.tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  padding: 10px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-bottom: #ffffff00 solid;
+}
+.tab .icon {
+  font-size: 19px;
+}
+.tab span {
+  margin-top: 3px;
+  display: block;
+  color: inherit;
+  font-size: 17px;
+}
+.tab:hover {
+  border-bottom: #053afe solid;
+}
+.active {
+  border-bottom: #053afe solid;
+  color: #053afe;
+}
+.inactive {
+  border-bottom: #ffffff00 solid;
+  color: black;
+}
