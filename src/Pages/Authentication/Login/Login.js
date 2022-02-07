@@ -13,8 +13,23 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const loading = useSelector((state) => state.user.loading);
   const authedUser = useSelector((state) => state.user.authedUser);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [checkbox, setCheckbox] = useState(false);
   const dispatch = useDispatch();
   let history = useHistory();
+
+  useEffect(() => {
+    if (localStorage.getItem("rememberMe")) {
+      if (localStorage.getItem("rememberMe") !== null) {
+        let data = JSON.parse(localStorage.getItem("rememberMe"));
+        setEmail(data.email);
+        setPassword(data.password);
+        setCheckbox(data.checkbox);
+        console.log(data);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (authedUser) {
@@ -25,6 +40,10 @@ export default function Login() {
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleCheckboxChange = (e) => {
+    setCheckbox(e.target.checked);
   };
 
   return (
@@ -38,18 +57,31 @@ export default function Login() {
       <hr />
       <div className="form-container">
         <Formik
+          enableReinitialize={true}
           initialValues={{
-            username: "",
-            password: "",
+            email: email,
+            password: password,
           }}
           validate={(values) => {
+            console.log(values);
             const errors = {};
-            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)){
+            if (
+              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+            ) {
               errors.email = "Invalid email address";
             }
             return errors;
           }}
           onSubmit={(values) => {
+            const data = {
+              email: values.email,
+              password: values.password,
+              checkbox: checkbox,
+            };
+            let credentials = JSON.stringify(data);
+            if (checkbox === true)
+              localStorage.setItem("rememberMe", credentials);
+            else localStorage.removeItem("rememberMe");
             dispatch(loginUserAction(values));
           }}
         >
@@ -57,7 +89,7 @@ export default function Login() {
             <Form>
               <div className="form-input-group">
                 <div className="form-input">
-                  <label>Username</label>
+                  <label>Email</label>
                   <Field
                     type="email"
                     name="email"
@@ -85,7 +117,12 @@ export default function Login() {
 
               <div className="argreements-container">
                 <div className="argreement-container">
-                  <input type="checkbox" />
+                  <input
+                    name="checkbox"
+                    type="checkbox"
+                    checked={checkbox}
+                    onChange={handleCheckboxChange}
+                  />
                   <span className="agreement">Remember me</span>
                 </div>
               </div>
