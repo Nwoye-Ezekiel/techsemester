@@ -107,3 +107,9 @@ label {
   top: 50%;
   transform: translateY(-50%);
 }
+
+@media screen and (max-width: 700px) {
+  .register-container p {
+    width: 90%;
+  }
+}

@@ -20,3 +20,12 @@
 hr {
   border-top: 1px rgb(248, 248, 248) solid;
 }
+
+@media screen and (max-width: 700px) {
+  .main {
+    padding: 50px 30px;
+  }
+  .incomplete-width {
+    width: 100%;
+  }
+}
