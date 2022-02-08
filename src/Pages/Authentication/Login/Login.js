@@ -26,7 +26,6 @@ export default function Login() {
         setEmail(data.email);
         setPassword(data.password);
         setCheckbox(data.checkbox);
-        console.log(data);
       }
     }
   }, []);
@@ -63,7 +62,6 @@ export default function Login() {
             password: password,
           }}
           validate={(values) => {
-            console.log(values);
             const errors = {};
             if (
               !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)

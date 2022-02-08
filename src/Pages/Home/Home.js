@@ -57,7 +57,6 @@ export default function Home() {
             tags: "",
           }}
           validate={(values) => {
-            console.log(values);
             const errors = {};
             if (values.title.length < 5) {
               errors.title = "Title must be at least 5 characters long";
@@ -78,7 +77,6 @@ export default function Home() {
               title: values.title,
               tags: [values.tags.split(",").length],
             };
-            console.log(user);
             dispatch(postQuestionAction(accessToken, data));
           }}
         >

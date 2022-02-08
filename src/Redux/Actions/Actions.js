@@ -70,7 +70,6 @@ export const registerUserAction = (data) => {
       dispatch(registerUserSuccess());
       alert("An email has been sent to you, do verify to login.");
     } catch (error) {
-      console.log(error.response?.data);
       alert(error);
       return dispatch(registerUserFailure(error.response?.data?.message));
     }
