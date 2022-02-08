@@ -23,26 +23,23 @@ input[type="search"]::placeholder {
   font-family: "livvic-r";
   font-size: 16px;
 }
-
 .section {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
-
 .icon {
   font-size: 16px;
 }
-
 .icon-search {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: 10px;
 }
-
 .avatar {
+  display: inline-block;
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -52,7 +49,6 @@ input[type="search"]::placeholder {
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .question-btn {
   padding: 10px 25px;
   border-radius: 20px;

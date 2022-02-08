@@ -6,3 +6,72 @@
   width: 100%;
   height: 100%;
 }
+.question-form-container {
+  max-width: 800px;
+  min-height: 500px;
+  width: 100%;
+  border: #ECECEC solid 2px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+}
+.username {
+  font-family: "livvic-m";
+}
+.title {
+  margin: 10px 0 20px;
+  font-weight: bold;
+}
+.form-body-header {
+  font-weight: bold;
+}
+.form-body-sub-header {
+  color: gray;
+  font-size: 13px;
+  margin: 3px 0 5px;
+}
+.editor-container {
+  width: 100%;
+  height: 100%;
+}
+.editor-header1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 15px;
+}
+.editor-header1-right {
+  display: flex;
+  align-items: center;
+}
+.undo-redo {
+  margin-right: 15px;
+}
+.fa-undo,
+.fa-redo {
+  margin: 0 5px;
+}
+.hide-tips {
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+.action-icon {
+  margin-right: 15px;
+}
+.editor-header2 {
+  display: flex;
+  align-items: center;
+  background-color: #ececec;
+  padding-left: 15px;
+  height: 30px;
+  margin: 3px 0;
+}
+.editor-header2 li {
+  list-style: none;
+  margin-right: 15px;
+  font-family: "livvic-m";
+}
