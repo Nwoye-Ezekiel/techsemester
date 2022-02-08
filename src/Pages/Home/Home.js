@@ -137,7 +137,7 @@ export default function Home() {
                   </div>
                   <div className="editor">
                     <Field
-                      type="text"
+                      type="textarea"
                       name="body"
                       className="body-input"
                       required

@@ -18,6 +18,7 @@ input[type="search"] {
   border: 0;
   padding: 5px 10px 5px 35px;
   border-radius: 5px;
+  background: #E8F0FE;
 }
 input[type="search"]::placeholder {
   font-family: "livvic-r";
