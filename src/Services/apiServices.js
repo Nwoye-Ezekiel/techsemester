@@ -22,8 +22,11 @@ export const getUserDetails = (data) => {
     data,
   });
 };
-export const postQuestion = (data) => {
+export const postQuestion = (token, data) => {
   return axios({
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
     method: "POST",
     url: postQuestionUrl,
     data,

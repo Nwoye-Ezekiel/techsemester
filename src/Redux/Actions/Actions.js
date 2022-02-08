@@ -46,6 +46,21 @@ export const getUserDetailsFailure = (error) => ({
   payload: error,
 });
 
+// for posting question
+export const postQuestionStart = () => ({
+  type: Types.POST_QUESTION_START,
+});
+
+export const postQuestionSuccess = (user) => ({
+  type: Types.POST_QUESTION_SUCCESS,
+  payload: user,
+});
+
+export const postQuestionFailure = (error) => ({
+  type: Types.POST_QUESTION_FAILURE,
+  payload: error,
+});
+
 export const setPinFailure = (dispatch) => {
   dispatch({
     type: "SET_PIN_FAILURE",
@@ -95,6 +110,20 @@ export const getUserDetailsAction = (data) => {
       dispatch(getUserDetailsSuccess(response.data));
     } catch (error) {
       return dispatch(getUserDetailsFailure(error.response?.data?.message));
+    }
+  };
+};
+
+export const postQuestionAction = (token, data) => {
+  return async (dispatch) => {
+    try {
+      dispatch(postQuestionStart());
+      const response = await API.postQuestion(token, data);
+      dispatch(postQuestionSuccess(response.data));
+      alert("Question posted successfully");
+    } catch (error) {
+      alert(error);
+      return dispatch(postQuestionFailure(error.response?.data?.message));
     }
   };
 };

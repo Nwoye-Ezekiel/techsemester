@@ -10,10 +10,10 @@
   max-width: 800px;
   min-height: 500px;
   width: 100%;
-  border: #ECECEC solid 2px;
-  padding: 20px;
+  border: #ececec solid 2px;
+  padding: 20px 20px 40px;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 .user-info {
   display: flex;
@@ -23,8 +23,14 @@
   font-family: "livvic-m";
 }
 .title {
+  border: 0;
+  outline: 0;
+  font-family: livvic-m;
+  font-size: 22px;
   margin: 10px 0 20px;
-  font-weight: bold;
+}
+.title::placeholder {
+  color: #000;
 }
 .form-body-header {
   font-weight: bold;
@@ -37,6 +43,9 @@
 .editor-container {
   width: 100%;
   height: 100%;
+  border: #ececec solid 2px;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 .editor-header1 {
   display: flex;
@@ -74,4 +83,32 @@
   list-style: none;
   margin-right: 15px;
   font-family: "livvic-m";
+}
+.editor {
+  padding: 15px;
+}
+.body-input {
+  display: flex;
+  min-height: 300px;
+  width: 100%;
+  outline: 0;
+  border: 0;
+}
+.tags-input {
+  border: #ececec solid 2px;
+  height: 40px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-radius: 5px;
+  outline: 0;
+  padding: 15px;
+}
+.post-button {
+  padding: 10px 25px;
+  border-radius: 20px;
+}
+.error{
+  color: red;
+  margin-bottom: 20px;
+
 }

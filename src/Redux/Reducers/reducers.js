@@ -10,6 +10,7 @@ export const reducers = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case Types.REGISTER_USER_START:
     case Types.LOGIN_USER_START:
+    case Types.POST_QUESTION_START:
       return {
         ...state,
         loading: true,
@@ -18,6 +19,8 @@ export const reducers = (state = INITIAL_STATE, action) => {
     case Types.REGISTER_USER_SUCCESS:
     case Types.REGISTER_USER_FAILURE:
     case Types.LOGIN_USER_FAILURE:
+    case Types.POST_QUESTION_SUCCESS:
+    case Types.POST_QUESTION_FAILURE:
       return {
         ...state,
         loading: false,
