@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,7 +26,6 @@ export default function Home() {
     (state) => state.user.userDetails.access_token
   );
   const user = useSelector((state) => state.user.userDetails.user);
-  // const user = useSelector((state) => state.user.userDetails.user);
 
   let history = useHistory();
   const dispatch = useDispatch();
@@ -67,7 +66,7 @@ export default function Home() {
               errors.body = "Body must be at least 10 characters long";
             }
             if (values.tags.split(",").length !== 5) {
-              errors.tags = "Only 5 tags are required";
+              errors.tags = "Only 5 tags are required!";
             }
             return errors;
           }}
@@ -79,7 +78,7 @@ export default function Home() {
               title: values.title,
               tags: [values.tags.split(",").length],
             };
-            console.log(data);
+            console.log(user);
             dispatch(postQuestionAction(accessToken, data));
           }}
         >
@@ -88,7 +87,6 @@ export default function Home() {
               <div className="form-header">
                 <div className="user-info">
                   <div className="avatar"></div>
-                  {/* <span className="username">{user.last_name} {user.first_name}</span> */}
                   <span className="username">Abdusalam Fatai</span>
                 </div>
                 <Field
@@ -100,6 +98,7 @@ export default function Home() {
                 />
                 <ErrorMessage className="error" name="title" component="div" />
               </div>
+
               <div className="form-body">
                 <h4 className="form-body-header">Body</h4>
                 <p className="form-body-sub-header">
@@ -148,6 +147,7 @@ export default function Home() {
                   </div>
                 </div>
                 <ErrorMessage className="error" name="body" component="div" />
+
                 <div className="tags-container">
                   <h4 className="form-body-header">Tags</h4>
                   <p className="form-body-sub-header">

@@ -15,8 +15,11 @@ export const registerUser = (data) => {
     data,
   });
 };
-export const getUserDetails = (data) => {
+export const getUserDetails = (token, data) => {
   return axios({
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
     method: "GET",
     url: userDetailsUrl,
     data,

@@ -61,18 +61,6 @@ export const postQuestionFailure = (error) => ({
   payload: error,
 });
 
-export const setPinFailure = (dispatch) => {
-  dispatch({
-    type: "SET_PIN_FAILURE",
-  });
-};
-
-export const openQR = (dispatch) => {
-  dispatch({
-    type: "OPEN_QR",
-  });
-};
-
 // Asynchronous actions
 export const registerUserAction = (data) => {
   return async (dispatch) => {
@@ -102,13 +90,14 @@ export const loginUserAction = (data) => {
   };
 };
 
-export const getUserDetailsAction = (data) => {
+export const getUserDetailsAction = (token, data) => {
   return async (dispatch) => {
     try {
       dispatch(getUserDetailsStart());
-      const response = await API.getUserDetails(data);
+      const response = await API.getUserDetails(token, data);
       dispatch(getUserDetailsSuccess(response.data));
     } catch (error) {
+      alert(error);
       return dispatch(getUserDetailsFailure(error.response?.data?.message));
     }
   };
@@ -118,8 +107,8 @@ export const postQuestionAction = (token, data) => {
   return async (dispatch) => {
     try {
       dispatch(postQuestionStart());
-      const response = await API.postQuestion(token, data);
-      dispatch(postQuestionSuccess(response.data));
+      await API.postQuestion(token, data);
+      dispatch(postQuestionSuccess());
       alert("Question posted successfully");
     } catch (error) {
       alert(error);
