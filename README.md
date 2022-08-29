@@ -40,4 +40,4 @@ This is a technical assessment by Techsemester, which involves sign up and log i
 
 [create react app]: https://create-react-app.dev
 [netlify]: https://www.netlify.com/
-[risevest clone]: https://the-lottery-display.netlify.app/login/
+[Lottery Display]: https://the-lottery-display.netlify.app/login/
